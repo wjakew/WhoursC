@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,33 +21,51 @@ namespace Whours
         public FileReader(String path)
         {
             this.path = path;
-            file = new StreamReader(this.path);
+            try
+            {
+                file = new StreamReader(this.path);
+            }catch(Exception e)
+            {
+                file = null;
+                Debug.WriteLine("ERROR: " + e.ToString());
+            }
+            file_lines = new List<String>();
             line_counter = 0;
             validation_flag = false;
         }
 
         //function for loading data from file
-        void load_file()
+        public void load_file()
         {
-            try
+            if ( file != null)
             {
-                String line;
-                while ((line = file.ReadLine()) != null)
+                try
                 {
-                    file_lines.Add(line);
-                    line_counter++;
+                    String line;
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        file_lines.Add(line);
+                        line_counter++;
+                    }
+                    validation_flag = true;
                 }
-                validation_flag = true;
-            }catch(Exception e)
-            {
-                validation_flag = false;
+                catch (Exception e)
+                {
+                    validation_flag = false;
+                }
             }
-            
         }
 
-        void show_rawdata()
+        //function for showing file data
+        public void show_debug()
         {
-            System.out.
+            Debug.WriteLine("FILE PATH: " + path);
+            Debug.WriteLine("Number of lines: " + line_counter);
+            Debug.WriteLine("RAW DATA:");
+            foreach(String line in file_lines){
+                Debug.WriteLine(line);
+            }
+            Debug.WriteLine("EOF");
         }
 
 
