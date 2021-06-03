@@ -10,32 +10,47 @@ namespace Whours
 {
     class FileReader
     {
-        public String path;          // field for stoirng path to file
+        public String path;                 // field for stoirng path to file
 
-        List<String> file_lines;     // collection for storing lines of file
-        StreamReader file;           // object representing file in object
+        public List<String> file_lines;     // collection for storing lines of file
+        StreamReader file;                  // object representing file in object
+        
         int line_counter;
-        bool validation_flag;
-
+        public bool validation_flag;
+        public bool file_exist;
         //constructor
         public FileReader(String path)
         {
             this.path = path;
-            try
+            if (File.Exists(this.path)) // checking if file exists
             {
-                file = new StreamReader(this.path);
-            }catch(Exception e)
-            {
-                file = null;
-                Debug.WriteLine("ERROR: " + e.ToString());
+                try
+                {
+                    file = new StreamReader(this.path); // loading file to object
+                    file_exist = true;
+                }
+                catch (Exception e)
+                {
+                    file = null;
+                    Debug.WriteLine("ERROR: " + e.ToString());  // getting error by file exist
+                    validation_flag = false;
+
+                }
             }
+            else
+            {
+                validation_flag = false;
+                file_exist = false;
+            }
+            
             file_lines = new List<String>();
             line_counter = 0;
-            validation_flag = false;
+            load_file();
+            
         }
 
         //function for loading data from file
-        public void load_file()
+        void load_file()
         {
             if ( file != null)
             {

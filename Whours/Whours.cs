@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Whours.TimeManager;
 
 namespace Whours
 {
@@ -13,21 +14,28 @@ namespace Whours
         ///  The main entry point for the application.
         /// </summary>
         /// 
-        static int debug = 1;
+        static int debug = 1;   // flag for debug
         static String version = "#.0.1A1";
 
         [STAThread]
         static void Main()
         {
             show_header();
+
+            // debug option
             if ( debug == 1)
             {
-                Debug.Write("Debug session is on!");
-                FileReader fr = new FileReader("text.txt");
-                fr.load_file();
-                fr.show_debug();
-                
+                try
+                {
+                    FileReader fr = new FileReader("test.txt");
+                    FileParser fp = new FileParser(fr);
+                    fp.show_debug();
+                }catch(Exception e)
+                {
+                    Debug.WriteLine(e.ToString());
+                }   
             }
+            // normal running
             else
             {
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
@@ -43,9 +51,9 @@ namespace Whours
 
         static void show_header()
         {
-            String header = "w#ours\n";
-            Debug.Write(header);
-            Debug.Write("by Jakub Wawak 2021 " + version);
+            String header = "\nw#ours";
+            Debug.WriteLine(header);
+            Debug.WriteLine("by Jakub Wawak 2021 " + version);
         }
     }
 }
