@@ -27,5 +27,35 @@ namespace Whours.TimeManager
             // time start before time_end
             return time_start.convert().CompareTo(time_end.convert()) == -1;
         }
+
+        // function for calculating time between dates
+        TimeSpan calculate_span()
+        {
+            return time_end.convert().Subtract(time_start.convert());
+        }
+
+        // function for calculating minutes
+        public long calculate_minutes()
+        {
+            return calculate_span().Minutes;
+        }
+
+        // function for calculating hours
+        public long calculate_hours()
+        {
+            return calculate_span().Hours;
+        }
+
+        // function for showing object data for gui components
+        public String prepare_glance()
+        {
+            return time_start.convert().ToString() + " -> " + time_end.convert().ToString();
+        }
+
+        // function for showing object data for gui components with time span
+        public String prepare_glance_full()
+        {
+            return time_start.convert().ToString() + " -> " + time_end.convert().ToString() + "[" + calculate_minutes() + "]";
+        }
     }
 }

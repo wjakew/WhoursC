@@ -66,6 +66,7 @@ namespace Whours
                 }
                 catch (Exception e)
                 {
+                    Debug.WriteLine(e.ToString());
                     validation_flag = false;
                 }
             }
