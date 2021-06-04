@@ -7,7 +7,7 @@ using Whours.TimeManager;
 
 namespace Whours.Raport_Generator
 {
-    class Raport_GeneratorRAW
+    public class Raport_GeneratorRAW
     {
         FileParser session_data;
 

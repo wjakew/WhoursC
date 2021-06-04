@@ -8,12 +8,12 @@ using Whours.TimeManager;
 
 namespace Whours
 {
-    class FileParser
+    public class FileParser
     {
         FileReader file_object;         // field for storing original object
         public int data_obj_amount;            // amount of read objects from file
 
-        bool validation_flag;           // flag for checking if object is correct
+        public bool validation_flag;           // flag for checking if object is correct
 
         public List<TimeManager_DayPair> time_objects;    // collection for storing objects
         

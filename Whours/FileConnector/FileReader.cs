@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Whours
 {
-    class FileReader
+    public class FileReader
     {
         public String path;                 // field for stoirng path to file
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Whours.TimeManager
 {
-    class TimeManager_Object
+    public class TimeManager_Object
     {
         String raw_data;            // raw data from line
 

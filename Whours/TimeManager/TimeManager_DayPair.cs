@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Whours.TimeManager
 {
-    class TimeManager_DayPair
+    public class TimeManager_DayPair
     {
         public TimeManager_Object time_start, time_end;    // fields for storing time
         public bool validation;                            // flag for checking if time is correctly

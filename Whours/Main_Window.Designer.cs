@@ -127,6 +127,7 @@ namespace Whours
             this.button_raportgeneration.TabIndex = 8;
             this.button_raportgeneration.Text = "Raport Generation";
             this.button_raportgeneration.UseVisualStyleBackColor = true;
+            this.button_raportgeneration.Click += new System.EventHandler(this.button_raportgeneration_Click);
             // 
             // Main_Window
             // 

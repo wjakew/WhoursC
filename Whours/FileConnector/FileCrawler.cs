@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Whours.FileConnector
 {
-    class FileCrawler
+    public class FileCrawler
     {
         String current_directory;
         String[] file_paths;
