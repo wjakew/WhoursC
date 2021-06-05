@@ -29,9 +29,10 @@ namespace Whours.Raport_Generator
         // function for calculating minutes
         public long calculate_minutes()
         {
-            long calculated = 0;
+            long calculated = -1;
             if ( validation())
             {
+                calculated = 0;
                 foreach(TimeManager_DayPair tmdp in session_data.time_objects)
                 {
                     calculated = calculated + tmdp.calculate_minutes();
@@ -44,9 +45,10 @@ namespace Whours.Raport_Generator
         // function for calculating hours
         public long calculate_hours()
         {
-            long calculated = 0;
+            long calculated = -1;
             if (validation())
             {
+                calculated = 0;
                 foreach (TimeManager_DayPair tmdp in session_data.time_objects)
                 {
                     calculated = calculated + tmdp.calculate_hours();

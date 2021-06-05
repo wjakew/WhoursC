@@ -94,10 +94,11 @@ namespace Whours
             {
                 cash_amount = field_money.Text;
                 hour_amount = field_hours.Text;
-                Debug.WriteLine(cash_amount);
-                Debug.WriteLine(hour_amount);
+                Debug.WriteLine("Data read from field_money: "+cash_amount);
+                Debug.WriteLine("Data read from field_hours: " + hour_amount);
 
-                long cash = long.Parse(cash_amount);
+                double cash = double.Parse(cash_amount);
+                Debug.WriteLine("Converted field_money to double value: " + cash);
                 int hours = Int32.Parse(hour_amount);
                 dw = new Details_Window(new Raport_Generator.Raport_GeneratorRAW(fp), cash, hours);
                 dw.Show();
