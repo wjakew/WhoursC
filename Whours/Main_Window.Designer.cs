@@ -38,6 +38,7 @@ namespace Whours
             this.field_hours = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button_raportgeneration = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_loadfile
@@ -129,11 +130,22 @@ namespace Whours
             this.button_raportgeneration.UseVisualStyleBackColor = true;
             this.button_raportgeneration.Click += new System.EventHandler(this.button_raportgeneration_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(749, 423);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "v1.0.0";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Main_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_raportgeneration);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.field_hours);
@@ -161,5 +173,6 @@ namespace Whours
         private System.Windows.Forms.TextBox field_hours;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_raportgeneration;
+        private System.Windows.Forms.Label label1;
     }
 }

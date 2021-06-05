@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace Whours
         String cash_amount, hour_amount;
         OpenFileDialog openFileDialog1;
         String choosen_file;
-
+        Details_Window dw;
         FileReader fr;
         FileParser fp;
 
@@ -89,7 +90,27 @@ namespace Whours
 
         private void button_raportgeneration_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                cash_amount = field_money.Text;
+                hour_amount = field_hours.Text;
+                Debug.WriteLine(cash_amount);
+                Debug.WriteLine(hour_amount);
+
+                long cash = long.Parse(cash_amount);
+                int hours = Int32.Parse(hour_amount);
+                dw = new Details_Window(new Raport_Generator.Raport_GeneratorRAW(fp), cash, hours);
+                dw.Show();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Wrong input " + ex.ToString());
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         // function for loading file path to label
